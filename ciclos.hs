@@ -88,4 +88,25 @@ multi :: Int -> [Int] -> [Int]
 multi n [] = []
 multi n (x:xs) = x * n : multi n xs
 
+--5)
+--a) menores a 10
+todosMenores :: [Int] -> Bool
+todosMenores [] = True
+todosMenores (x:xs) 
+    | x < 10 = todosMenores xs
+    | otherwise = False 
+
+--b) hay ceros
+hay0 :: [Int] -> Bool
+hay0 [] = False
+hay0 (x:xs)
+    |x==0 = True
+    |otherwise= hay0 xs
+
+--c)sumatoria
+sumatoria :: [Int] -> Int
+sumatoria [] = 0
+sumatoria (x:xs) = x + sumatoria xs
+
+
 
