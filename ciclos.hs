@@ -65,15 +65,15 @@ mayoresQue n (x:xs)
     | otherwise = mayoresQue n xs --(*3)
 -- Compilacion escrita?
 --mayoresQue 3 [5,2,10]
--- por definicion de (*2), n := 3, x:= 5, xs := [2,10] *(porque  5 > n)
---5 : mayoresQue 3 [2,10]
--- por definicion de (*3), n := 3, x:= 2, xs := [10] *(porque  2 < n)
---5 : mayoresQue 3 [10]
--- por definicion de (*2), n := 3, x:= 10, xs := [] *(porque  10 > n)
---5 : 10 : mayoresQue 3 []
--- por definicion de (*1),5:10:[]
--- por defiicion de ":", 10:[] = [10]
--- por defincion de ":", 5:[10] = [5,10]
+-- = por definicion de (*2), n := 3, x:= 5, xs := [2,10] *(porque  5 > n)
+--  5 : mayoresQue 3 [2,10]
+-- = por definicion de (*3), n := 3, x:= 2, xs := [10] *(porque  2 < n)
+--  5 : mayoresQue 3 [10]
+-- = por definicion de (*2), n := 3, x:= 10, xs := [] *(porque  10 > n)
+--  5 : 10 : mayoresQue 3 []
+-- = por definicion de (*1),5:10:[]
+-- = por defiicion de ":", 10:[] = [10]
+-- = por defincion de ":", 5:[10] = [5,10]
 
 
 
@@ -124,4 +124,8 @@ sumatoria [] = 0
 sumatoria (x:xs) = x + sumatoria xs
 
 
-
+--6) 
+repartir :: [String] -> [String] -> [(String,String)]
+repartir [] [] = []
+repartir (x:xs) (y:ys) = (x,y) : repartir xs ys
+repartir _ _ = [] 
