@@ -59,10 +59,25 @@ mayores10 (x:xs)
 
 -- C)
 mayoresQue :: Int -> [Int] -> [Int]
-mayoresQue n [] = []
+mayoresQue n [] = [] --(*1)
 mayoresQue n (x:xs)
-    | x > n = x : mayoresQue n xs
-    | otherwise = mayoresQue n xs
+    | x > n = x : mayoresQue n xs --(*2)
+    | otherwise = mayoresQue n xs --(*3)
+-- Compilacion escrita?
+--mayoresQue 3 [5,2,10]
+-- por definicion de (*2), n := 3, x:= 5, xs := [2,10] *(porque  5 > n)
+--5 : mayoresQue 3 [2,10]
+-- por definicion de (*3), n := 3, x:= 2, xs := [10] *(porque  2 < n)
+--5 : mayoresQue 3 [10]
+-- por definicion de (*2), n := 3, x:= 10, xs := [] *(porque  10 > n)
+--5 : 10 : mayoresQue 3 []
+-- por definicion de (*1),5:10:[]
+-- por defiicion de ":", 10:[] = [10]
+-- por defincion de ":", 5:[10] = [5,10]
+
+
+
+
 
 --Se puede hacer una funcion parfa calcular el factorial de un numero
 fact :: Int -> Int
